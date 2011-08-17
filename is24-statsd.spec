@@ -1,6 +1,6 @@
 
 Name:           is24-statsd
-Version:        0.2
+Version:        0.3
 Release:        1%{?dist}
 Summary:        monitoring daemon, that aggregates events received by udp in 10 second intervals
 Group:          Applications/Internet
@@ -53,7 +53,7 @@ exit 0
 %postun
 if [ $1 = 0 ]; then
 	chkconfig --del %{name}
-  %{__getent} passwd %{name} >/dev/null && \
+  getent passwd %{name} >/dev/null && \
       %{__userdel} -r %{name} 2>/dev/null
 fi
 exit 0
