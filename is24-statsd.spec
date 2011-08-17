@@ -47,14 +47,14 @@ getent passwd %{name} >/dev/null || \
 exit 0
 
 %preun
-%{__service} %{name} stop
+service %{name} stop
 exit 0
 
 %postun
 if [ $1 = 0 ]; then
 	chkconfig --del %{name}
-  getent passwd %{name} >/dev/null && \
-      %{__userdel} -r %{name} 2>/dev/null
+	getent passwd %{name} >/dev/null && \
+	userdel -r %{name} 2>/dev/null
 fi
 exit 0
 
