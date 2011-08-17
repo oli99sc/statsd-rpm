@@ -67,7 +67,7 @@ chkconfig --add %{name}
 %files
 %defattr(-,root,root,-)
 %doc LICENSE README.md
-%doc StatsdClient.java php-example.php python_exampl.py
+%doc StatsdClient.java php-example.php python_example.py
 %doc exampleConfig.js
 
 
