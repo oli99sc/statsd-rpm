@@ -37,7 +37,7 @@ echo "build not needed"
 %{__install} -Dp -m0644 exampleConfig.js  %{buildroot}%{_sysconfdir}/%{name}/config.js
 
 %{__mkdir_p} %{buildroot}%{_localstatedir}/lock/subsys
-%{__touch} %{buildroot}%{_localstatedir}/lock/subsys/%{name}
+touch %{buildroot}%{_localstatedir}/lock/subsys/%{name}
 
 %pre
 getent group %{name} >/dev/null || groupadd -r %{name}
