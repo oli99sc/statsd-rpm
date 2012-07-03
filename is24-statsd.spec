@@ -1,6 +1,6 @@
 
 Name:           is24-statsd
-Version:        0.8.3
+Version:        0.8.4
 Release:        1%{?dist}
 Summary:        monitoring daemon, that aggregates events received by udp in 10 second intervals
 Group:          Applications/Internet
@@ -47,7 +47,10 @@ getent passwd %{name} >/dev/null || \
 exit 0
 
 %preun
-service %{name} stop
+#final uninstall will stop service now, update keeps service running to remember service state for restart in post
+if [ $1 = 0 ]; then
+	service %{name} stop
+fi
 exit 0
 
 %postun
@@ -60,6 +63,16 @@ exit 0
 
 %post
 chkconfig --add %{name}
+if [ $1 -gt 1 ]; then
+    # restart service if it was running
+    if /sbin/service %{name} status > /dev/null 2>&1; then
+        echo "Restarting is24-statsd service because it was running."
+        if ! /sbin/service %{name} restart ; then
+                logger -s -t "%name" -- "Installation failure. Not able to restart the service." 
+                exit 1
+        fi
+    fi
+fi
 
 %clean
 [ "%{buildroot}" != "/" ] && %{__rm} -rf %{buildroot}
@@ -78,5 +91,8 @@ chkconfig --add %{name}
 %ghost %{_localstatedir}/lock/subsys/%{name}
 
 %changelog
+* Tue Jul 03 2012 Oliver Schmitz <oli99sc@gmail.com> - 0.8.4-1
+- restart service on update if it was running before the update
+
 * Tue Jul 03 2012 Oliver Schmitz <oli99sc@gmail.com> - 0.8.3-1
 - create user and group with fixed uid / gid values and start service with this user
