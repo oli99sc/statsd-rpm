@@ -1,7 +1,7 @@
 
 Name:           is24-statsd
-Version:        0.8.2
-Release:        2%{?dist}
+Version:        0.8.3
+Release:        1%{?dist}
 Summary:        monitoring daemon, that aggregates events received by udp in 10 second intervals
 Group:          Applications/Internet
 License:        Etsy open source license
@@ -78,5 +78,5 @@ chkconfig --add %{name}
 %ghost %{_localstatedir}/lock/subsys/%{name}
 
 %changelog
-* Tue Jul 03 2012 Oliver Schmitz <oli99sc@gmail.com> - 0.8.2-2
-- create user and group with fixed uid / gid values
+* Tue Jul 03 2012 Oliver Schmitz <oli99sc@gmail.com> - 0.8.3-1
+- create user and group with fixed uid / gid values and start service with this user
