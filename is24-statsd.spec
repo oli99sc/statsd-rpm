@@ -1,7 +1,7 @@
 
 Name:           is24-statsd
 Version:        0.8.2
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        monitoring daemon, that aggregates events received by udp in 10 second intervals
 Group:          Applications/Internet
 License:        Etsy open source license
@@ -40,9 +40,9 @@ echo "build not needed"
 touch %{buildroot}%{_localstatedir}/lock/subsys/%{name}
 
 %pre
-getent group %{name} >/dev/null || groupadd -r %{name}
+getent group %{name} >/dev/null || groupadd -g 306 -r %{name}
 getent passwd %{name} >/dev/null || \
-    useradd -r -g %{name} -d %{_localstatedir}/lib/%{name} \
+    useradd -r -g %{name} -u 306 -d %{_localstatedir}/lib/%{name} \
     -s /sbin/nologin -c "%{name} daemon" %{name}
 exit 0
 
@@ -78,3 +78,5 @@ chkconfig --add %{name}
 %ghost %{_localstatedir}/lock/subsys/%{name}
 
 %changelog
+* Tue Jul 03 2012 Oliver Schmitz <oli99sc@gmail.com> - 0.8.2-2
+- create user and group with fixed uid / gid values
