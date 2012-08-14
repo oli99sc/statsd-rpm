@@ -1,6 +1,6 @@
 
 Name:           is24-statsd
-Version:        0.8.4
+Version:        0.8.8
 Release:        1%{?dist}
 Summary:        monitoring daemon, that aggregates events received by udp in 10 second intervals
 Group:          Applications/Internet
@@ -91,6 +91,19 @@ fi
 %ghost %{_localstatedir}/lock/subsys/%{name}
 
 %changelog
+* Tue Aug 13 2012 Oliver Schmitz <oli99sc@gmail.com> - 0.8.8-1
+- all systems now measured only by host group, that is without trailing number in hostname
+
+* Tue Aug 13 2012 Oliver Schmitz <oli99sc@gmail.com> - 0.8.7-1
+- bui and dev systems not measured by host 
+
+* Tue Aug 13 2012 Oliver Schmitz <oli99sc@gmail.com> - 0.8.6-1
+- fix missing dot after other.unknowhost for counters 
+
+* Tue Aug 11 2012 Oliver Schmitz <oli99sc@gmail.com> - 0.8.5-1
+- statsd now handles our appname.hostname additional parameter on counters 
+  and timers and sends it to graphite as key prefix
+
 * Tue Jul 03 2012 Oliver Schmitz <oli99sc@gmail.com> - 0.8.4-1
 - restart service on update if it was running before the update
 
