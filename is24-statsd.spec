@@ -1,6 +1,6 @@
 
 Name:           is24-statsd
-Version:        0.8.8
+Version:        0.8.9
 Release:        1%{?dist}
 Summary:        monitoring daemon, that aggregates events received by udp in 10 second intervals
 Group:          Applications/Internet
@@ -91,6 +91,9 @@ fi
 %ghost %{_localstatedir}/lock/subsys/%{name}
 
 %changelog
+* Tue Aug 16 2012 Oliver Schmitz <oli99sc@gmail.com> - 0.8.9-1
+- improve localdev grouping 
+
 * Tue Aug 13 2012 Oliver Schmitz <oli99sc@gmail.com> - 0.8.8-1
 - all systems now measured only by host group, that is without trailing number in hostname
 
