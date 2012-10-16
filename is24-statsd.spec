@@ -1,6 +1,6 @@
 
 Name:           is24-statsd
-Version:        0.8.9
+Version:        0.8.10
 Release:        1%{?dist}
 Summary:        monitoring daemon, that aggregates events received by udp in 10 second intervals
 Group:          Applications/Internet
@@ -91,6 +91,9 @@ fi
 %ghost %{_localstatedir}/lock/subsys/%{name}
 
 %changelog
+* Tue Oct 16 2012 Oliver Schmitz <oli99sc@gmail.com> - 0.8.10-1
+- use nodejs executable in init script instead of node after nodejs update, so we do not need dependency to compatibility rpm. 
+
 * Tue Aug 16 2012 Oliver Schmitz <oli99sc@gmail.com> - 0.8.9-1
 - improve localdev grouping 
 
