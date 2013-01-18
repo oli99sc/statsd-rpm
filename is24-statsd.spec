@@ -1,6 +1,6 @@
 
 Name:           is24-statsd
-Version:        0.8.10
+Version:        0.8.11
 Release:        1%{?dist}
 Summary:        monitoring daemon, that aggregates events received by udp in 10 second intervals
 Group:          Applications/Internet
