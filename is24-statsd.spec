@@ -1,6 +1,6 @@
 
 Name:           is24-statsd
-Version:        0.8.12
+Version:        0.8.13
 Release:        1%{?dist}
 Summary:        monitoring daemon, that aggregates events received by udp in 10 second intervals
 Group:          Applications/Internet
@@ -91,6 +91,9 @@ fi
 %ghost %{_localstatedir}/lock/subsys/%{name}
 
 %changelog
+* Tue Feb 26 2013 Oliver Schmitz <oli99sc@gmail.com> - 0.8.13-1
+- add counters prefix like done with timers to improve readability of metrics in graphite
+
 * Tue Feb 19 2013 Oliver Schmitz <oli99sc@gmail.com> - 0.8.12-1
 - add hostname to statsd metrices to allow several instances of statsd to report into the same graphite instance
 
