@@ -1,5 +1,5 @@
 
-Name:           is24-statsd
+Name:           statsd
 Version:        0.8.14
 Release:        1%{?dist}
 Summary:        monitoring daemon, that aggregates events received by udp in 10 second intervals
@@ -26,12 +26,12 @@ echo "build not needed"
 
 %install
 # install the js files which to the work
-%{__mkdir_p} %{buildroot}/usr/share/is24-statsd
-%{__install} -Dp -m0644 stats.js config.js %{buildroot}/usr/share/is24-statsd
+%{__mkdir_p} %{buildroot}/usr/share/%{name}
+%{__install} -Dp -m0644 stats.js config.js %{buildroot}/usr/share/%{name}
 
 
 # Install init scripts
-%{__install} -Dp -m0755 redhat/is24-statsd %{buildroot}%{_initrddir}/%{name}
+%{__install} -Dp -m0755 redhat/%{name} %{buildroot}%{_initrddir}/%{name}
 
 # Install default configuration files
 %{__install} -Dp -m0644 exampleConfig.js  %{buildroot}%{_sysconfdir}/%{name}/config.js
@@ -66,7 +66,7 @@ chkconfig --add %{name}
 if [ $1 -gt 1 ]; then
     # restart service if it was running
     if /sbin/service %{name} status > /dev/null 2>&1; then
-        echo "Restarting is24-statsd service because it was running."
+        echo "Restarting %{name} service because it was running."
         if ! /sbin/service %{name} restart ; then
                 logger -s -t "%name" -- "Installation failure. Not able to restart the service." 
                 exit 1
