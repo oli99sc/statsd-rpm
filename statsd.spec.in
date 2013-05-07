@@ -18,7 +18,7 @@ Requires:       nodejs
 Simple daemon for easy stats aggregation  
 build from etsy/statsd sha STATSD_SHA
 with oli99sc/statsd-rpm sha STATSD_RPM_SHA
-using init script from oli99sc/statsd sha OLI_STATSD_SHA
+using init script from oli99sc/statsd sha IS24_STATSD_SHA
 
 %prep
 %setup -q
