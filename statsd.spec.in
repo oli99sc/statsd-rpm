@@ -46,9 +46,9 @@ echo "build not needed"
 touch %{buildroot}%{_localstatedir}/lock/subsys/%{name}
 
 %pre
-getent group %{name} >/dev/null || groupadd -g 306 -r %{name}
+getent group %{name} >/dev/null || groupadd -g 345 -r %{name}
 getent passwd %{name} >/dev/null || \
-    useradd -r -g %{name} -u 306 -d %{_localstatedir}/lib/%{name} \
+    useradd -r -g %{name} -u 345 -d %{_localstatedir}/lib/%{name} \
     -s /sbin/nologin -c "%{name} daemon" %{name}
 exit 0
 
