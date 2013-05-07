@@ -1,3 +1,6 @@
 [submodule "statsd"]
 	path = statsd
 	url = https://github.com/etsy/statsd.git
+[submodule "is24-statsd"]
+	path = is24-statsd
+	url = https://github.com/oli99sc/statsd.git
