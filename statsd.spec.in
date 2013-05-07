@@ -40,7 +40,7 @@ echo "build not needed"
 %{__install} -Dp -m0755 redhat/%{name} %{buildroot}%{_initrddir}/%{name}
 
 # Install default configuration files
-%{__install} -Dp -m0644 exampleConfig.js  %{buildroot}%{_sysconfdir}/%{name}/
+%{__install} -Dp -m0644 exampleConfig.js  %{buildroot}%{_sysconfdir}/%{name}/exampleConfig.js
 
 %{__mkdir_p} %{buildroot}%{_localstatedir}/lock/subsys
 touch %{buildroot}%{_localstatedir}/lock/subsys/%{name}
