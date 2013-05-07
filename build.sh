@@ -1,3 +1,4 @@
+git submodule init
 git submodule update
 
 DATE=`date +%Y%m%d`
