@@ -1,7 +1,7 @@
 
 Name:           statsd
 Version:        DATE
-Release:        1%{?dist}
+Release:        1.RELEASE_ID%{?dist}
 Summary:        monitoring daemon, that aggregates events received by udp in 10 second intervals
 Group:          Applications/Internet
 License:        Etsy open source license
@@ -16,6 +16,9 @@ Requires:       nodejs
 
 %description
 Simple daemon for easy stats aggregation  
+build from etsy/statsd sha STATSD_SHA
+with oli99sc/statsd-rpm sha STATSD_RPM_SHA
+using init script from oli99sc/statsd sha OLI_STATSD_SHA
 
 %prep
 %setup -q
