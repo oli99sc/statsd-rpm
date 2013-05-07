@@ -86,8 +86,10 @@ fi
 %files
 %defattr(-,root,root,-)
 %doc LICENSE README.md
-%doc StatsdClient.java php-example.php python_example.py
 %doc exampleConfig.js
+%doc examples/csharp_example.cs  examples/php-example.php    examples/README.md         examples/ruby_example.rb    examples/statsd.erl
+%doc examples/perl-example.pl    examples/python_example.py  examples/ruby_example2.rb  examples/StatsdClient.java  examples/statsd.go
+%doc examples/Etsy/StatsD.pm 
 
 
 /usr/share/%{name}/*
