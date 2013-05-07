@@ -15,7 +15,7 @@ echo "is24-statds sha $IS24_STATSD_SHA"
 
 mkdir -p is24-statsd-$DATE
 rsync -av is24-statsd/ is24-statsd-$DATE --exclude=.git
-tar -cvzf is24-statsd-$DATE.tar.gz statsd-$DATE
+tar -cvzf is24-statsd-$DATE.tar.gz is24-statsd-$DATE
 rm -rf is24-statsd-$DATE
 cat is24-statsd.spec.in | sed -e "s/DATE/$DATE/" -e "s/RELEASE_ID/${STATSD_RPM_SHA:0:10}/" -e "s/IS24_STATSD_SHA/$IS24_STATSD_SHA/" -e "s/STATSD_SHA/$STATSD_SHA/" -e "s/STATSD_RPM_SHA/$STATSD_RPM_SHA/" > is24-statsd.spec
 mkdir -p ~/rpmbuild/SOURCES
