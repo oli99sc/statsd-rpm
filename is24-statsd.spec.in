@@ -9,6 +9,7 @@ URL:            https://github.com/oli99sc/statsd
 Vendor:         Etsy, modified my OSchmitz IS24
 Packager:       OSchmitz IS24 <oliver.schmitz@immobilienscout24.de>
 Source0:        %{name}-%{version}.tar.gz
+Source1:	config.js
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 BuildArch:      noarch
 
@@ -36,7 +37,7 @@ echo "build not needed"
 %{__install} -Dp -m0755 redhat/is24-statsd %{buildroot}%{_initrddir}/%{name}
 
 # Install default configuration files
-%{__install} -Dp -m0644 exampleConfig.js  %{buildroot}%{_sysconfdir}/%{name}/config.js
+%{__install} -Dp -m0644 %SOURCE1  %{buildroot}%{_sysconfdir}/%{name}/config.js
 
 %{__mkdir_p} %{buildroot}%{_localstatedir}/lock/subsys
 touch %{buildroot}%{_localstatedir}/lock/subsys/%{name}
