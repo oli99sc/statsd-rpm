@@ -1,7 +1,7 @@
 
 Name:           is24-statsd
 Version:        DATE 
-Release:        1.RELEASE_ID%{?dist}
+Release:        6.RELEASE_ID%{?dist}
 Summary:        monitoring daemon, that aggregates events received by udp in 10 second intervals
 Group:          Applications/Internet
 License:        Etsy open source license
@@ -93,6 +93,9 @@ fi
 %ghost %{_localstatedir}/lock/subsys/%{name}
 
 %changelog
+* Fri May 10 2013 Felix Sperling <felix.sperling@immobilienscout24.de> 
+- keys of metrics not coming from inapplicationmonitor are not modified anymore
+
 * Tue Feb 26 2013 Oliver Schmitz <oli99sc@gmail.com> - 0.8.13-1
 - add counters prefix like done with timers to improve readability of metrics in graphite
 
